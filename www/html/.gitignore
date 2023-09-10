@@ -1,0 +1,9 @@
+# ignore swp files for now
+*.swp
+*.swn
+*.swo
+
+# feel free to add to this gitignore whenever you encounter a filetype or file you don't want to back up
+# you can create more gitignore files at each directory to exclude files only in specific directories
+# files that are ignored are NOT uploaded to the remote repo when you push commits, they should not even
+# show up as modified or changed when looking at git status
