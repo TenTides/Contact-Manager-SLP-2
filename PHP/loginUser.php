@@ -18,7 +18,7 @@
         $username = $inData['login'];
         $password = $inData['password'];
 
-		$stmt = $conn->prepare("SELECT ID,firstName,lastName FROM Users WHERE Login=?");
+		$stmt = $conn->prepare("SELECT ID,FirstName,LastName FROM Users WHERE Login=?");
 		$stmt->bind_param("s", $username);
 		$stmt->execute();
 		$result = $stmt->get_result();
@@ -27,7 +27,7 @@
 		{
             if (password_verify($password, $row['Password'])) 
             {
-                returnWithInfo( $row['firstName'], $row['lastName'], $row['ID'] );
+                returnWithInfo( $row['FirstName'], $row['LastName'], $row['ID'] );
             } 
             else 
             {

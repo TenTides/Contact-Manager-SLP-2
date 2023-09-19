@@ -28,7 +28,7 @@ else
     }
     else
     {
-        $sql = "SELECT * FROM users WHERE username='$username'";
+        $sql = "SELECT * FROM Users WHERE Login='$username'";
         $stmtSearch = $conn->prepare($sql);
         $stmtSearch->execute();
         $result = $stmtSearch->get_result();
@@ -57,11 +57,11 @@ else
 
                 if ($row = $resultFind->fetch_assoc()) {
                     // Return new user information by confirming proper insertion
-                    returnWithInfo( $row['firstName'], $row['lastName'], $row['ID'] );
+                    returnWithInfo( $row['FirstName'], $row['LastName'], $row['ID'] );
                 } 
                 else 
                 {
-                    returnWithError("No Records Found");
+                    returnWithError("Failed to register new User");
                 }
                 //Close Find instance
                 $stmtFind->close();
