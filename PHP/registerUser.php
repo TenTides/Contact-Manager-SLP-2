@@ -3,9 +3,9 @@
 $inData = getRequestInfo();
 
 $servername = "localhost";
-$ServerUsername = "TO be inserted";
-$ServerPassword = "TO be inserted";
-$dbname = "TO be inserted";
+$ServerUsername = "phpDealer";
+$ServerPassword = "tTimetocode9!u";
+$dbname = "COP4331";
 
 $conn = new mysqli($servername, $ServerUsername, $ServerPassword, $dbname);
 
