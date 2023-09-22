@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="app.js" defer></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacts</title>
+</head>
+<body>
+    <div class="fixednav">
+      <a href="index.html" id="LOGO">LOGO</a>
+      <input type="text">
+      <a href="#" onclick=""><img src="icons/icon_add.svg" alt="add button" id="add"></a>
+      <a href="#" onclick=""><img src="icons/icon_filter.svg" alt="filter button" id="filter"></a>
+
+      <button id="profile">J</button>
+    </div>
+
+    <div class="add_contact">
+      <div class="close-btn">&times;</div>
+      <form id="addform">
+        <h2>New Contact</h2>
+
+          <input type="text" name="first" id="first" placeholder="First Name" required>
+
+          <input type="text" name="last" id="last" placeholder="Last Name">
+
+          <input type="email" name="email" id="email" placeholder="Email">
+
+          <input type="tel" name="phone" id="phone" placeholder="Phone Number">
+
+          <input type="text" name="about" id="about" placeholder="About Contact">
+
+          <button type="submit">Add Contact</button>
+      </form>
+    </div>
+
+
+    <div class="main">
+      <div id="contacts">
+        <table id="contact_table">
+          <tbody>
+            <tr onclick="select(this);">
+              <td><img src="icons/icon_user.svg" alt="user icon" id="user_icon"></td>
+              <td><b>Bob Joe</b></td>
+              <td>#2 uncle</td>
+            </tr>
+            <tr onclick="select(this);">
+              <td><img src="icons/icon_user.svg" alt="user icon" id="user_icon"></td>
+              <td><b>Bob Bob</b></td>
+              <td>#1 uncle</td>
+            </tr>
+            <tr onclick="select(this);">
+              <td><img src="icons/icon_user.svg" alt="user icon" id="user_icon"></td>
+              <td><b>Bob No</b></td>
+              <td>#3 uncle</td>
+            </tr>
+            <tr onclick="select(this);">
+              <td><img src="icons/icon_user.svg" alt="user icon" id="user_icon"></td>
+              <td><b>Bob Yes</b></td>
+              <td>#4 uncle</td>
+            </tr>
+            <tr onclick="select(this);">
+              <td><img src="icons/icon_user.svg" alt="user icon" id="user_icon"></td>
+              <td><b>Bob Yes?</b></td>
+              <td>#5 uncle</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="contact_info">
+        <div id="name_info">
+          <b id="display_name">Bob Bob</b> <br>
+          <p id="display_about">#1 uncle</p>
+        </div>
+
+        <div id="email_info">
+          <p id="display_email">bobbob@gmail.com</p>
+        </div>
+
+        <div id="phone_info">
+          <p>123-456-7890</p>
+        </div>
+      </div>
+
+
+
+      </div>
+    </div>
+
+
+</body>
+</html>
