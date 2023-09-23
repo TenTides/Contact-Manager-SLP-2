@@ -1,8 +1,7 @@
 
 <?php
-
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
 	$inData = getRequestInfo();
-	
     $servername = "localhost";
     $ServerUsername = "phpDealer";
     $ServerPassword = "tTimetocode9!u";
@@ -64,5 +63,9 @@
 		$retValue = '{"id":' . $id . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
-	
+}
+else
+{
+	returnWithError("Invalid Request Method");
+}
 ?>

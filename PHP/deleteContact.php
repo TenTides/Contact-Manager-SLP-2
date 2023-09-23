@@ -1,28 +1,35 @@
 <?php
 // Connect to your database (same as in registration)
-$inData = getRequestInfo();
 
-$servername = "localhost";
-$ServerUsername = "phpDealer";
-$ServerPassword = "tTimetocode9!u";
-$dbname = "COP4331";
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
 
-$conn = new mysqli($servername, $ServerUsername, $ServerPassword, $dbname);
+    $inData = getRequestInfo();
+    // Retrieve the contact ID from the URL
+    // $contactId = $_GET['id']; Depends on frontend
+    $servername = "localhost";
+    $ServerUsername = "phpDealer";
+    $ServerPassword = "tTimetocode9!u";
+    $dbname = "COP4331";
 
-// Check connection
-if ($conn->connect_error) {
-    returnWithError($conn->connect_error);
-}
-else
-{
-    //BEFORE RUNNING THIS, MAKE SURE THE ID PASSED FROM JSON IS NOT CONFLATED WITH USERID
-    $stmtDelete = $conn->prepare("DELETE FROM Contacts WHERE ID = ?");
-    $stmtDelete->bind_param("i", $inData['id']);
-    if (!$stmtDelete->execute())
-    {
-        returnWithError("Failed to Delete Contact");
+    $conn = new mysqli($servername, $ServerUsername, $ServerPassword, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        returnWithError($conn->connect_error);
     }
-    $stmtDelete->close();
+    else
+    {
+        //BEFORE RUNNING THIS, MAKE SURE THE ID PASSED FROM JSON IS NOT CONFLATED WITH USERID
+        $stmtDelete = $conn->prepare("DELETE FROM Contacts WHERE ID = ?");
+        $stmtDelete->bind_param("i", $inData['id']);
+        if (!$stmtDelete->execute())
+        {
+            returnWithError("Failed to Delete Contact");
+        }
+        $stmtDelete->close();
+    }
+}
+else {
+    returnWithError("Invalid Request Method");
 }
 //Helper Functions
 function getRequestInfo()

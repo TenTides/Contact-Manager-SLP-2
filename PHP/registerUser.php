@@ -1,75 +1,82 @@
 <?php
 // Connect to your database (same as in registration)
-$inData = getRequestInfo();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-$servername = "localhost";
-$ServerUsername = "phpDealer";
-$ServerPassword = "tTimetocode9!u";
-$dbname = "COP4331";
+    $inData = getRequestInfo();
 
-$conn = new mysqli($servername, $ServerUsername, $ServerPassword, $dbname);
+    $servername = "localhost";
+    $ServerUsername = "phpDealer";
+    $ServerPassword = "tTimetocode9!u";
+    $dbname = "COP4331";
 
-// Check connection
-if ($conn->connect_error) {
-    returnWithError($conn->connect_error);
-}
-else
-{
-    // Get data from the HTML form
-    $firstName = $inData['firstName'];
-    $lastName = $inData['lastName'];
-    $username = $inData['login'];
-    $password = $inData['password'];
-    $confirm_password = $inData['confirm_password'];
+    $conn = new mysqli($servername, $ServerUsername, $ServerPassword, $dbname);
 
-    // Validate input
-    if ($password != $confirm_password) {
-        returnWithError("Passwords Don't Match");
+    // Check connection
+    if ($conn->connect_error) {
+        returnWithError($conn->connect_error);
     }
     else
     {
-        $sql = "SELECT * FROM Users WHERE Login='$username'";
-        $stmtSearch = $conn->prepare($sql);
-        $stmtSearch->execute();
-        $result = $stmtSearch->get_result();
-        //Check for duplicate username
-        if ($result->num_rows > 0) {
-            returnWithError("Username Exists");
+        // Get data from the HTML form
+        $firstName = $inData['firstName'];
+        $lastName = $inData['lastName'];
+        $username = $inData['login'];
+        $password = $inData['password'];
+        $confirm_password = $inData['confirm_password'];
+
+        // Validate input
+        if ($password != $confirm_password) {
+            returnWithError("Passwords Don't Match");
         }
         else
         {
-            //Close Search instance
-            $stmtSearch->close();
-            // Hash the new user's password
-            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            $sqlInsert = "INSERT INTO Users (FirstName, LastName, Login, Password) VALUES (?,?,?,?)";
-            $stmtInsert = $conn->prepare($sqlInsert);
-            $stmtInsert->bind_param("ssss", $firstName, $lastName, $username, $hashed_password);
-            if ($stmtInsert->execute()) {
-                //Close Insert instance
-                $stmtInsert->close();
-                // Fetch the newly inserted user's information via an SQL query (Can be taken out later)
-                $sqlFind = "SELECT ID, FirstName, LastName FROM Users WHERE Login=? AND Password =?";
-                $stmtFind = $conn->prepare($sqlFind);
-                $stmtFind->bind_param("ss",$username, $hashed_password);
-                $stmtFind->execute();
-                $resultFind = $stmtFind->get_result();    
-
-                if ($row = $resultFind->fetch_assoc()) {
-                    // Return new user information by confirming proper insertion
-                    returnWithInfo( $row['FirstName'], $row['LastName'], $row['ID'] );
-                } 
-                else 
-                {
-                    returnWithError("Failed to register new User");
-                }
-                //Close Find instance
-                $stmtFind->close();
+            $sql = "SELECT * FROM Users WHERE Login='$username'";
+            $stmtSearch = $conn->prepare($sql);
+            $stmtSearch->execute();
+            $result = $stmtSearch->get_result();
+            //Check for duplicate username
+            if ($result->num_rows > 0) {
+                returnWithError("Username Exists");
             }
-            //Close General instance
-            $conn->close();
+            else
+            {
+                //Close Search instance
+                $stmtSearch->close();
+                // Hash the new user's password
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                $sqlInsert = "INSERT INTO Users (FirstName, LastName, Login, Password) VALUES (?,?,?,?)";
+                $stmtInsert = $conn->prepare($sqlInsert);
+                $stmtInsert->bind_param("ssss", $firstName, $lastName, $username, $hashed_password);
+                if ($stmtInsert->execute()) {
+                    //Close Insert instance
+                    $stmtInsert->close();
+                    // Fetch the newly inserted user's information via an SQL query (Can be taken out later)
+                    $sqlFind = "SELECT ID, FirstName, LastName FROM Users WHERE Login=? AND Password =?";
+                    $stmtFind = $conn->prepare($sqlFind);
+                    $stmtFind->bind_param("ss",$username, $hashed_password);
+                    $stmtFind->execute();
+                    $resultFind = $stmtFind->get_result();    
+
+                    if ($row = $resultFind->fetch_assoc()) {
+                        // Return new user information by confirming proper insertion
+                        returnWithInfo( $row['FirstName'], $row['LastName'], $row['ID'] );
+                    } 
+                    else 
+                    {
+                        returnWithError("Failed to register new User");
+                    }
+                    //Close Find instance
+                    $stmtFind->close();
+                }
+                //Close General instance
+                $conn->close();
+            }
         }
     }
+}
+else
+{
+    returnWithError("Invalid Request Method");
 }
 //Helper Functions
 function getRequestInfo()
