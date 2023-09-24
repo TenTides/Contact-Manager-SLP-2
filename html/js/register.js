@@ -23,13 +23,12 @@ document.addEventListener("DOMContentLoaded", function () {
             password: password,
             confirmPassword: confirmPassword,
         };
-
         // Convert the JavaScript object to JSON
         const jsonData = JSON.stringify(userData);
         // Create a new XMLHttpRequest or use the fetch API to send the JSON data to your PHP script
         // Here's an example using XMLHttpRequest:
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "PHP/registerUser.php", true);
+        xhr.open("POST", "/html/PHP/registerUser.php", true);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE) {

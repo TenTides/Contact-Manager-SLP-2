@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Create a new XMLHttpRequest or use the fetch API to send the JSON data to your PHP script
         // Here's an example using XMLHttpRequest:
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "PHP/loginUser.php", true);
+        xhr.open("POST", "/html/PHP/loginUser.php", true);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE) {
