@@ -1,0 +1,167 @@
+.login {
+    background-color: #faf6f0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .login .div {
+    background-color: #faf6f0;
+    width: 1440px;
+    height: 960px;
+    position: relative;
+  }
+  
+  .login .logo-text {
+    position: absolute;
+    top: 28px;
+    left: 478px;
+    font-family: "IBM Plex Sans", Helvetica;
+    font-weight: 700;
+    color: #465735;
+    font-size: 50px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login .welcome-text {
+    position: absolute;
+    top: 148px;
+    left: 478px;
+    font-family: "IBM Plex Sans", Helvetica;
+    font-weight: 200;
+    color: #000000;
+    font-size: 40px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login .username-form {
+    display: flex;
+    width: 483px;
+    height: 69px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 18px;
+    position: absolute;
+    top: 256px;
+    left: 478px;
+    background-color: #faf7f1;
+    border: 2px solid;
+    border-color: #b2977e;
+  }
+  .login .username-form input {
+    width: 100%; /* Make the input box full width within the container */
+    padding: 10px; /* Add padding to the input box */
+    border: none; /* Remove the input box border */
+    background: none; /* Remove the input box background */
+    font-size: 16px; /* Set the font size */
+    text-align: center; /* Center-align the text within the input box */
+  }
+  .login .username-form input::placeholder {
+    font-size: 20px; /* Set the font size for the placeholder text */
+  }
+  .login .username-text {
+    position: relative;
+    width: fit-content;
+    margin-top: -2px;
+    font-family: "IBM Plex Sans", Helvetica;
+    font-weight: 100;
+    color: #000000;
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login .password-form {
+    display: flex;
+    width: 483px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 18px;
+    position: absolute;
+    top: 380px;
+    left: 478px;
+    background-color: #faf7f1;
+    border: 2px solid;
+    border-color: #b2977e;
+  }
+
+  .login .password-form input {
+    width: 100%; /* Make the input box full width within the container */
+    padding: 10px; /* Add padding to the input box */
+    border: none; /* Remove the input box border */
+    background: none; /* Remove the input box background */
+    font-size: 16px; /* Set the font size */
+    text-align: center; /* Center-align the text within the input box */
+  }
+  .login .password-form input::placeholder {
+    font-size: 20px; /* Set the font size for the placeholder text */
+  }
+  
+  .login .password-text {
+    position: relative;
+    width: fit-content;
+    margin-top: -2px;
+    font-family: "IBM Plex Sans", Helvetica;
+    font-weight: 200;
+    color: #000000;
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login .signin-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 483px;
+    gap: 10px;
+    padding: 15px 196px;
+    position: absolute;
+    top: 504px;
+    left: 478px;
+    background-color: #adc892;
+    font-size: 20px; /* Increase font size for larger button */
+    cursor: pointer;
+    border-radius: 4px; 
+    color: #000000;
+  }
+  
+  .login .signin-text {
+    position: relative;
+    width: fit-content;
+    margin-top: -2px;
+    font-family: "IBM Plex Sans", Helvetica;
+    font-weight: 200;
+    color: #f6f6f6;
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .login .register-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 483px;
+    gap: 10px;
+    padding: 15px 30px; /* Adjust padding as needed */
+    background-color: #343434;
+    color: #ffffff; /* Set text color to contrast with the background */
+    border: none;
+    position: absolute;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px; /* Adjust font size as needed */
+  }
+  
+  .login .register-button:hover {
+    background-color: #000000; /* Change background color on hover */
+  }
+  .signin-button:hover {
+    background-color: #6cca63f5;
+}
