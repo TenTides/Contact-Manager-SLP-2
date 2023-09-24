@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/globals.css" />
+    <link rel="stylesheet" href="css/register.css" />
+    <script src="js/register.js"></script>
+  </head>
+  <body>
+    <div class="login">
+      <div class="register-title">POOSD.COM</div>
+      <div class="poosd-catchphrase">Start your group's journey today!</div>
+      <div class="create-title">~ Create a New Account ~</div>
+      <form id="registration-form" action="PHP/registerUser.php" method="post">
+        <div class="form-group">
+          <input type="firstName" id="firstName" class="form-input" placeholder="First Name">
+        </div>
+        <div class="form-group">
+            <input type="lastName" id="lastName" class="form-input" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+            <input type="login" id="login" class="form-input" placeholder="Username">
+        </div>
+        <div class="form-group">
+          <input type="password" id="password" class="form-input" placeholder="Password">
+        </div>
+        <div class="form-group">
+          <input type="password" id="confirm_password" class="form-input" placeholder="Confirm password">
+        </div>
+        <button class="register-button">Register</button>
+        <div id="error-message" class="error-message"></div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #faf6f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.register-title,
+.poosd-catchphrase {
+    text-align: center; /* Center the text */
+    color: #465735; /* Set the text color to blue (you can use any color you prefer) */
+    font-family: Arial, sans-serif; /* Set the font family */
+}
+
+.register-title {
+    font-size: 36px; /* Adjust the font size for the title */
+    font-weight: bold; /* Make the title bold */
+    margin-bottom: 10px; /* Add some margin at the bottom */
+}
+
+.poosd-catchphrase {
+    font-size: 24px; /* Adjust the font size for the catchphrase */
+    margin-top: 10px; /* Add some margin at the top */
+    margin-bottom: 20px; 
+}
+.create-title {
+    text-align: center; /* Center the text */
+    font-size: 30px; /* Increase font size for titles */
+    font-weight: bold;
+    color: #465735;
+    margin-bottom: 30px; /* Increase margin between title and input boxes */
+}
+
+.form-group {
+    margin-bottom: 30px; /* Increase margin between input boxes */
+}
+
+.form-label {
+    font-weight: bold;
+    font-size: 18px; /* Increase font size for labels */
+}
+
+.form-input {
+    width: 100%;
+    padding: 15px; /* Increase padding for larger text boxes */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px; /* Increase font size for larger text boxes */
+    margin-top: 10px; /* Add margin at the top of input boxes */
+}
+.register-button {
+    display: block;
+    width: 100%;
+    background-color: #adc892;
+    color: #fff;
+    border: none;
+    padding: 20px; /* Increase padding for larger button */
+    border-radius: 4px;
+    font-size: 20px; /* Increase font size for larger button */
+    cursor: pointer;
+}
+.register-button:hover {
+    background-color: #3a5f37f5;
+}
