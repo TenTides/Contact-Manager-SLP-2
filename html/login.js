@@ -1,10 +1,5 @@
 // ALL OF THIS IS AJAX ENABLED
-const registerButton = document.getElementById("register-button");
-// Add a click event listener to the button
-registerButton.addEventListener("click", function () {
-  // Redirect to register.html
-  window.location.href = "register.html";
-});
+
 
 document.addEventListener("DOMContentLoaded", function () {
     // Get a reference to the form
