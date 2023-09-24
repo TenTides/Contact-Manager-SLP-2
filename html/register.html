@@ -10,7 +10,7 @@
       <div class="poosd-catchphrase">Start your group's journey today!</div>
 
       <div class="create-title">~ Create a New Account ~</div>
-      <form id="registration-form" action="your_php_script.php" method="post">
+      <form id="registration-form" action="registerUser.php" method="post">
         <div class="form-group">
           <input type="username" id="username" class="form-input" placeholder="Username">
         </div>
@@ -21,6 +21,7 @@
           <input type="password" id="confirm-password" class="form-input" placeholder="Confirm password">
         </div>
         <button class="register-button">Register</button>
+        <div id="error-message" class="error-message"></div>
       </form>
     </div>
   </body>

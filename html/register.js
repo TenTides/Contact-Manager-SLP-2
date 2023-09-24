@@ -1,3 +1,5 @@
+// ALL OF THIS IS AJAX ENABLED
+
 document.addEventListener("DOMContentLoaded", function () {
     // Get a reference to the form
     const form = document.getElementById("registration-form");
@@ -27,17 +29,33 @@ document.addEventListener("DOMContentLoaded", function () {
         xhr.open("POST", "registerUser.php", true);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            if (xhr.status === 200) {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
                 // Request was successful
                 console.log("Registration successful!");
-                // re route to home page and with the list contacts
-                // You can handle the response from the PHP script here
-            } else {
+          
+                // Parse the JSON response from the PHP script
+                const response = JSON.parse(xhr.responseText);
+          
+                // Check if the response contains any data or errors
+                if (response.error) {
+                  // Handle an error in the response
+                  // errors that can happen here is solely duplicate username
+                  console.error("Error:", response.error);
+                } else {
+                  // Handle a successful response
+                  console.log("ID:", response.id);
+                  console.log("Name:", response.name);                  
+                }
+              } 
+              else {
                 // Request failed
                 console.error("Registration failed.");
+                const errorMessage = document.getElementById("error-message");
+                errorMessage.textContent = "Registration failed. The username might already exist or the passwords do not match.";
+                errorMessage.style.color = "red"; // Set the text color to red or customize it as needed
+              }
             }
-        }
         };
         xhr.send(jsonData);
     });
