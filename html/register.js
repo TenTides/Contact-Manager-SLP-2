@@ -9,13 +9,17 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault(); // Prevent the default form submission behavior
 
         // Get input values
-        const username = document.getElementById("username").value;
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        const login = document.getElementById("login").value;
         const password = document.getElementById("password").value;
-        const confirmPassword = document.getElementById("confirm-password").value;
+        const confirmPassword = document.getElementById("confirm_password").value;
 
         // Create a JavaScript object
         const userData = {
-            username: username,
+            firstName: firstName,
+            lastName: lastName,
+            login: login,
             password: password,
             confirmPassword: confirmPassword,
         };
@@ -26,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Create a new XMLHttpRequest or use the fetch API to send the JSON data to your PHP script
         // Here's an example using XMLHttpRequest:
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", "registerUser.php", true);
+        xhr.open("POST", "PHP/registerUser.php", true);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -45,12 +49,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                   // Handle a successful response
                   console.log("ID:", response.id);
-                  console.log("Name:", response.name);                  
+                  console.log("First Name:", response.firstName);
+                  console.log("Last Name:", response.lastName);
+                  console.log("Username:", response.login);
+
                 }
               } 
               else {
                 // Request failed
                 console.error("Registration failed.");
+                //formatting for the error message on an invalid registration that will appear on the user's end
                 const errorMessage = document.getElementById("error-message");
                 errorMessage.textContent = "Registration failed. The username might already exist or the passwords do not match.";
                 errorMessage.style.color = "red"; // Set the text color to red or customize it as needed
