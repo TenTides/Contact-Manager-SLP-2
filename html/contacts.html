@@ -5,7 +5,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="app.js" defer></script>
 
   <meta charset="UTF-8">
@@ -17,13 +17,12 @@
       <a href="index.html" id="LOGO">LOGO</a>
       <input type="text">
       <a href="#" onclick=""><img src="icons/icon_add.svg" alt="add button" id="add"></a>
-      <a href="#" onclick=""><img src="icons/icon_filter.svg" alt="filter button" id="filter"></a>
 
       <button id="profile">J</button>
     </div>
 
-    <div class="add_contact">
-      <div class="close-btn">&times;</div>
+    <div class="formwindow" id="add_contact">
+      <div class = "close" id="close-btn">&times;</div>
       <form id="addform">
         <h2>New Contact</h2>
 
@@ -38,9 +37,38 @@
           <input type="text" name="about" id="about" placeholder="About Contact">
 
           <button type="submit">Add Contact</button>
+          
+          <p id="error-message"></p>
       </form>
     </div>
 
+    <div class="formwindow" id="edit_contact">
+      <div class="close" id="close-edit">&times;</div>
+      <form id="editform">
+        <h2>Edit Contact</h2>
+
+          <input type="text" name="first" id="first" autocomplete="off" placeholder="Firererst Name" required>
+
+          <input type="text" name="last" id="last" placeholder="Last Name" autocomplete="off">
+
+          <input type="email" name="email" id="email" placeholder="Email" autocomplete="off">
+
+          <input type="tel" name="phone" id="phone" placeholder="Phone Number" autocomplete="off">
+
+          <input type="text" name="about" id="about" placeholder="About Contact" autocomplete="off">
+
+          <button type="submit">Confirm Details</button>
+      </form>
+    </div>
+
+    <div class="deleteform" id="delete_contact">
+      <div>Are you sure you want to delete this contact?</div>
+      <div>
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+      </div>
+      
+    </div>
 
     <div class="main">
       <div id="contacts">
@@ -86,15 +114,16 @@
         </div>
 
         <div id="phone_info">
-          <p>123-456-7890</p>
+          <p id="display_phone">123-456-7890</p>
         </div>
+        <div class="buttons">
+          <button id="editbtn">Edit Contact</button>
+          <button id="deletebtn">Delete Contact <span id="x">&times;</span></button>
+        </div>
+        
       </div>
-
-
-
       </div>
     </div>
-
 
 </body>
 </html>
