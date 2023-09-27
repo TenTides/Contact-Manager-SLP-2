@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+}
+
 body {
   background: #FAF7F1;
   font-family: 'Montserrat', sans-serif;
@@ -8,30 +12,9 @@ body {
   overflow: hidden;
   height: 100%;
 }
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-}
-.center-content {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.title {
-    font-size: 36px;
-    color: #6191c5; /* Light blue text color */
-    text-align: center;
-}
-.title {
-    margin: 20px;
-}
-
-html {
-  height: 100%;
+body * {
+  box-sizing: border-box;
 }
 
 #stickynav {
@@ -275,7 +258,7 @@ html {
   display: flex;
 }
 
-.add_contact {
+.formwindow {
   display: flex;
   border: 2px solid #8c755f;
   background-color: #f4f0e9;
@@ -290,12 +273,41 @@ html {
   opacity: 0;
 }
 
-.add_contact.active {
+.deleteform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 2px solid #8c755f;
+  background-color: #f4f0e9;
+  border-radius: 10px;
+  position: absolute;
+  top: -200%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 400px;
+  height: 200px;
+  padding: 50px 30px;
+  opacity: 0;
+  font-size: 20px;
+}
+
+.deleteform button {
+  width: 90px;
+  height: 40px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  outline: none;
+}
+
+.formwindow.active, .deleteform.active {
   top: 50%;
   opacity: 1;
 }
 
-.add_contact .close-btn {
+.close {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -305,14 +317,14 @@ html {
   cursor: pointer; 
 }
 
-.add_contact h2 {
+.formwindow h2 {
   text-align: center;
   margin: 10px 0px 20px;
   font-size: 30px;
 }
 
 
-.add_contact input{
+.formwindow input{
   margin: 10px 10px;
   width: 40%;
   padding: 10px;
@@ -321,15 +333,15 @@ html {
   border-radius: 5px;
 }
 
-.add_contact #about {
+.formwindow #about {
   width: 455px;
 }
 
-.add_contact #first, .add_contact #email, .add_contact #about {
+.formwindow #first, .formwindow #email, .formwindow #about {
   margin-left: 40px;
 }
 
-.add_contact button{
+.formwindow button{
   width: 455px;
   margin-top: 20px;
   margin-left: 40px;
@@ -342,7 +354,7 @@ html {
   cursor: pointer;
 }
 
-.add_contact button:hover{
+.formwindow button:hover{
   background: #c1b3a5;
 }
 
@@ -357,7 +369,6 @@ html {
 }
 
 #contact_info {
-  /* background-color: green; */
   margin-top: 5%;
   width: 60%;
   height: 90vh;
@@ -418,14 +429,47 @@ html {
   padding: 8px 4px;
 }
 
-#contact_table tbody tr {
+#contact_table tr {
   border-bottom: 1px solid #FAF7F1;
 }
 
-#contact_table tbody tr:nth-of-type(even) {
+#contact_table tr:nth-of-type(even) {
   background-color: #F9F1E0;
 }
 
 #contact_table #user_icon {
   width: 40px;
+}
+
+#contact_info button {
+  width: 180px;
+  height: 60px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+
+
+#contact_info #deletebtn {
+  background-color: #f6c9ae;
+}
+
+#contact_info #deletebtn:hover {
+  background-color: #f2bd9c;
+}
+
+#contact_info #deletebtn #x{
+  font-size: 25px;
+}
+
+#contact_info #editbtn {  
+  background: url("../icons/pen.png") no-repeat;
+  background-color: #e5e5bd;
+  background-position: right 5px center;
+
+}
+
+#contact_info #editbtn:hover {
+  background-color: #dbdba8;
 }
