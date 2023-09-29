@@ -17,8 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
     else
     {
         //BEFORE RUNNING THIS, MAKE SURE THE ID PASSED FROM JSON IS NOT CONFLATED WITH USERID
-        $stmtDelete = $conn->prepare("DELETE FROM Contacts WHERE ID = ?");
-        $stmtDelete->bind_param("i", $inData['id']);
+        $stmtDelete = $conn->prepare("DELETE FROM Contacts WHERE userID = ?");
+        $stmtDelete->bind_param("i", $inData['userid']);
         if (!$stmtDelete->execute())
         {
             returnWithError("Failed to Delete User");
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         //BEFORE RUNNING THIS, MAKE SURE THE ID PASSED FROM JSON IS THE USERID
         $stmtDelete2 = $conn->prepare("DELETE FROM Users WHERE ID = ?");
         $stmtDelete2->bind_param("i", $inData['userid']);
-        if (!$stmtDelete->execute())
+        if (!$stmtDelete2->execute())
         {
             returnWithError("Failed to Delete User");
         }

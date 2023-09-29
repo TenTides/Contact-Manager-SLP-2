@@ -1,19 +1,17 @@
 <?php
-// Connect to your database (same as in registration)
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+// Connect to your database 
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    // Check connection
     $inData = getRequestInfo();
-
     $servername = "localhost";
     $ServerUsername = "phpDealer";
     $ServerPassword = "tTimetocode9!u";
     $dbname = "COP4331";
 
     $conn = new mysqli($servername, $ServerUsername, $ServerPassword, $dbname);
-
-    // Check connection
     if ($conn->connect_error) {
         returnWithError($conn->connect_error);
+        echo $conn->connect_error;
     }
     else
     {
@@ -25,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $confirm_password = $inData['confirm_password'];
 
         // Validate input
-        if ($password != $confirm_password) {
+        if (strcmp($password,$confirm_password) != 0) {
             returnWithError("Passwords Don't Match");
         }
         else
@@ -43,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 //Close Search instance
                 $stmtSearch->close();
                 // Hash the new user's password
-                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+                $hashed_password = password_hash($password, PASSWORD_BCRYPT);
                 $sqlInsert = "INSERT INTO Users (FirstName, LastName, Login, Password) VALUES (?,?,?,?)";
                 $stmtInsert = $conn->prepare($sqlInsert);
                 $stmtInsert->bind_param("ssss", $firstName, $lastName, $username, $hashed_password);
@@ -56,7 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmtFind->bind_param("ss",$username, $hashed_password);
                     $stmtFind->execute();
                     $resultFind = $stmtFind->get_result();    
-
                     if ($row = $resultFind->fetch_assoc()) {
                         // Return new user information by confirming proper insertion
                         returnWithInfo( $row['FirstName'], $row['LastName'], $row['ID'] );
@@ -64,9 +61,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     else 
                     {
                         returnWithError("Failed to register new User");
+
                     }
                     //Close Find instance
                     $stmtFind->close();
+                }
+                else 
+                {
+                    returnWithError("Failed to register new User: Var Len");
+
                 }
                 //Close General instance
                 $conn->close();
@@ -76,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 else
 {
-    returnWithError("Invalid Request Method");
+	returnWithError("Invalid Request Method");
 }
 //Helper Functions
 function getRequestInfo()

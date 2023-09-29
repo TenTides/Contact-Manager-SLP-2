@@ -36,18 +36,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
         {
             //Close Search instance
             $stmtSearch->close();
-            $sqlUpdate = "UPDATE Contacts SET Name=?, Phone=?, Email=?, UserID=? WHERE ID=?";
+            $sqlUpdate = "UPDATE Contacts SET Name=?, Phone=?, Email=? WHERE ID=?";
             $stmtUpdate = $conn->prepare($sqlUpdate);
-            $stmtUpdate->bind_param("sssss", $name, $phone, $email, $userid,$id);
+            $stmtUpdate->bind_param("ssss", $name, $phone, $email,$id);
             if ($stmtUpdate->execute()) {
                 //Close Update instance
                 $stmtUpdate->close();
                 // Fetch the newly inserted user's information via an SQL query (Can be taken out later)
-                $sql = "SELECT * FROM Contacts WHERE Name=? AND Phone=? AND Email=? AND UserID=?";
+                $sql = "SELECT * FROM Contacts WHERE Name=? AND Phone=? AND Email=? AND ID=?";
                 $stmtFind = $conn->prepare($sql);
-                $stmtFind->bind_param("ssss", $name, $phone, $email, $userid);
+                $stmtFind->bind_param("ssss", $name, $phone, $email, $id);
                 $stmtFind->execute();
                 $resultFind = $stmtFind->get_result();    
+
                 if ($row = $resultFind->fetch_assoc()) {
                     // Return new contact information by confirming proper insertion
                     returnWithInfo( $row['Name'], $row['Phone'], $row['Email'], $row['UserID'], $row['ID']);

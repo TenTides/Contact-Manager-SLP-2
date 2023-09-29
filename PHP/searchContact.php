@@ -8,17 +8,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $dbname = "COP4331";
 
     $conn = new mysqli($servername, $ServerUsername, $ServerPassword, $dbname);
-
     // Check connection
     if ($conn->connect_error) {
         returnWithError($conn->connect_error);
     }
     else
     {
+        $name = $inData["searchquery"];
+        $userid = $inData['userid'];
         $sql = "SELECT Name,Phone,Email,UserID,ID FROM Contacts WHERE Name LIKE ? AND UserID =?";
         $finalname = "%".$name."%";
         $stmtSearch = $conn->prepare($sql);    
-        $stmtSearch->bind_param("ss", $finalname, $userid);
+        $stmtSearch->bind_param("si", $finalname, $userid);
         $stmtSearch->execute();
         $result = $stmtSearch->get_result();
         $resultList = []; // Initialize an empty array to store the JSON records
@@ -27,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             // Construct a JSON record for each row and append it to the result list
             $count++;
             $record = '{"id":' . $row["ID"] . ',"name":"' . $row["Name"] . '","phone":"' . $row["Phone"] . '","email":"' . $row["Email"] . '","userid":"' . $row["UserID"] . '","error":""}';
-            
             $resultList[] = $record;
         }
         $jsonResult = '[' . implode(',', $resultList) . ']';
