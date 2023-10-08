@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="../css/globals.css" />
+    <link rel="stylesheet" href="../css/register.css" />
+    <script src="../js/register.js"></script>
+  </head>
+  <body>
+    <div class="register">
+        <div class="container-register">
+            <div class="wrap-register">
+                <form id="registration-form" action="../PHP/register.php" method="post">
+                    <span class="logo"><img src="../contacts/icons/coollogo.png" alt=""></span>
+                    <span class="register-title">Register</span>
+                    <div class="wrap-input error-message">
+                        <input class="input" type="text" id="firstName" name="firstName" required maxlength="50" autocomplete="off">
+                        <span class="animate-input" data-placeholder="First Name"></span>
+                    </div>
+                    <div class="wrap-input error-message">
+                        <input class="input" type="text" id="lastName" name="lastName" required maxlength="50" autocomplete="off">
+                        <span class="animate-input" data-placeholder="Last Name"></span>
+                    </div>
+                    <div class="wrap-input error-message">
+                        <input class="input" type="text" id="username" name="username" required maxlength="50" autocomplete="off">
+                        <span class="animate-input" data-placeholder="Username"></span>
+                    </div>
+                    <div class="wrap-input error-message">
+                        <input class="input" type="password" id="password" name="password" required maxlength="50" autocomplete="off">
+                        <span class="animate-input" data-placeholder="Password"></span>
+                    </div>
+                    <div class="wrap-input error-message">
+                        <input class="input" type="password" id="confirm_password" name="confirm_password" required maxlength="50" autocomplete="off">
+                        <span class="animate-input" data-placeholder="Confirm Password"></span>
+                    </div>
+                    <div class="container-register-btn">
+                        <button class="register-btn">Register</button>
+                    </div>
+                    <div id="error-message" class="error-message"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

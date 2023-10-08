@@ -1,66 +1,229 @@
+/* Background */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #faf6f0;
+    background-color: #faf7f1;
+    height: 100%;
+    font-family: IBM Plex Sans, Helvetica;
+}
+
+a {
+    font-family: IBM Plex Sans, Helvetica;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #666;
+    margin: 0;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+}
+
+a:focus {
+    outline: none!important
+}
+  
+a:hover {
+    text-decoration: none;
+    color: #333
+}
+  
+.register {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container-register {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background: #faf7f1;
+}
+  
+.wrap-register {
+    width: 390px;
+    background: #faf7f1;
+    padding-bottom: 20px;
+    padding-top: 85px;
+}
+  
+.registration-form {
+    width: 100%;
+}
+
+.logo {
+    color: #475836;
+    font-family: IBM Plex Sans, Helvetica;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-bottom: 100px;
+}
+
+/* Welcome */
+.register-title {
+    display: block;
+    font-family: IBM Plex Sans, Helvetica;
+    font-size: 39px;
+    color: #333;
+    line-height: 1.2;
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+.quote-txt {
+    display: block;
+    font-family: IBM Plex Sans, Helvetica;
+    font-size: 20px;
+    color: #333;
+    line-height: 1.5;
+    padding-bottom: 30px;
+}
+
+.creation-txt {
+    display: block;
+    font-family: IBM Plex Sans, Helvetica;
+    font-size: 20px;
+    color: #333;
+    line-height: 1.5;
+    padding-bottom: 50px;
+  }
+
+/* Input */
+.wrap-input {
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #b2977e;
+    margin-bottom: 35px;
+}
+
+.input {
+    border: none;
+    border-color: #b2977e;
+    font-family: IBM Plex Sans, Helvetica;
+    font-size: 18px;
+    color: #b2977e;
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+    height: 52px;
+    background: 0 0;
+    padding: 0 5px;
+}
+  
+.animate-input {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.animate-input::before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+    background: #b2977e;
+}
+
+.animate-input::after {
+    font-family: IBM Plex Sans, Helvetica;
+    font-size: 18px;
+    color: #b2977e;
+    line-height: 1.2;
+    content: attr(data-placeholder);
+    display: block;
+    width: 100%;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    padding-left: 5px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s;
+    transform: translateY(-3px);
+}
+
+.input:focus+.animate-input::after,
+.input:valid+.animate-input::after {
+    top: -20px;
+    font-size: 15px;
+    transform: translateY(-3px);
+}
+
+.input:focus+.animate-input::before, 
+.input:valid+.animate-input::before {
+    width: 100%;
+}
+
+/* Register Button */
+.container-register-btn {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.register-btn {
+    font-family: IBM Plex Sans, Helvetica;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-.register-title,
-.poosd-catchphrase {
-    text-align: center; /* Center the text */
-    color: #465735; /* Set the text color to blue (you can use any color you prefer) */
-    font-family: Arial, sans-serif; /* Set the font family */
-}
-
-.register-title {
-    font-size: 36px; /* Adjust the font size for the title */
-    font-weight: bold; /* Make the title bold */
-    margin-bottom: 10px; /* Add some margin at the bottom */
-}
-
-.poosd-catchphrase {
-    font-size: 24px; /* Adjust the font size for the catchphrase */
-    margin-top: 10px; /* Add some margin at the top */
-    margin-bottom: 20px; 
-}
-.create-title {
-    text-align: center; /* Center the text */
-    font-size: 30px; /* Increase font size for titles */
-    font-weight: bold;
-    color: #465735;
-    margin-bottom: 30px; /* Increase margin between title and input boxes */
-}
-
-.form-group {
-    margin-bottom: 30px; /* Increase margin between input boxes */
-}
-
-.form-label {
-    font-weight: bold;
-    font-size: 18px; /* Increase font size for labels */
-}
-
-.form-input {
+    padding: 0 20px;
     width: 100%;
-    padding: 15px; /* Increase padding for larger text boxes */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 18px; /* Increase font size for larger text boxes */
-    margin-top: 10px; /* Add margin at the top of input boxes */
+    height: 50px;
+    background-color: #aec893;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px 0 #3f4b3d80;
+    -moz-box-shadow: 0 10px 30px 0 #3f4b3d80;
+    -webkit-box-shadow: 0 10px 30px 0 #3f4b3d80;
+    -o-box-shadow: 0 10px 30px 0 #3f4b3d80;
+    -ms-box-shadow: 0 10px 30px 0 #3f4b3d80;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    -moz-transition: all .4s;
+    transition: all .4s
 }
-.register-button {
-    display: block;
-    width: 100%;
-    background-color: #adc892;
-    color: #fff;
-    border: none;
-    padding: 20px; /* Increase padding for larger button */
-    border-radius: 4px;
-    font-size: 20px; /* Increase font size for larger button */
-    cursor: pointer;
-}
-.register-button:hover {
+
+.register-btn:hover {
     background-color: #3a5f37f5;
+    box-shadow: 0 10px 30px 0 #3a5f37f5;
+    -moz-box-shadow: 0 10px 30px 0 #3a5f37f5;
+    -webkit-box-shadow: 0 10px 30px 0 #3a5f37f5;
+    -o-box-shadow: 0 10px 30px 0 #3a5f37f5;
+    -ms-box-shadow: 0 10px 30px 0 #3a5f37f5;
+}
+
+#error-message {
+    padding-top: 15px;
+}
+
+img {
+    width: 400px;
 }
