@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="css/globals.css" />
-  <link rel="stylesheet" href="css/login.css" />
-  <script src="js/login.js"></script>
+  <link rel="stylesheet" href="../css/globals.css" />
+  <link rel="stylesheet" href="../css/login.css" />
+  <script src="../js/login.js"></script>
 </head>
 <body>
   <div class="login">
     <div class="container-login">
       <div class="wrap-login">
-        <form id="login-form" action="/html/PHP/loginUser.php" method="post">
-          <span class="logo">LOGOLOGO</span>
+        <form id="login-form" action="../PHP/loginUser.php" method="post">
+          <span class="logo"><img src="../contacts/icons/coollogo.png" alt=""></span>
           <span class="welcome-text">Welcome,</span>
-          <div class="wrap-input error-message" data-validate="Enter username">
-            <input class="input" type="text" id="username" name="username">
+          
+          <div class="wrap-input error-message">
+            <input class="input" type="text" id="username" name="username" required maxlength="50" autocomplete="off">
             <span class="animate-input" data-placeholder="Username"></span>
           </div>
-          <div class="wrap-input error-message" data-validate="Enter password">
-            <input class="input" type="password" id="password" name="password">
+          <div class="wrap-input error-message">
+            <input class="input" type="password" id="password" name="password" required maxlength="50" autocomplete="off">
             <span class="animate-input" data-placeholder="Password"></span>
           </div>
+          
           <div class="container-login-btn">
             <button class="login-btn">Login</button>
           </div>
@@ -32,7 +34,7 @@
             </li>                /\
             <li> input redirect for "#"-->
               <span class="more-info-txt">Don't have an account?</span>
-              <a id="register-button" href="register.html" class="btn-txt">Create an account</a>
+              <a id="register-button" href="../register/" class="btn-txt">Create an account</a>
             </li>
           </ul>  
         </form>

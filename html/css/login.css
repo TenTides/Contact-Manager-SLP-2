@@ -1,8 +1,8 @@
 /* Background */
 body {
-    background-color: #faf7f1;
-    height: 100%;
-    font-family: IBM Plex Sans, Helvetica;
+  background-color: #faf7f1;
+  height: 100%;
+  font-family: IBM Plex Sans, Helvetica;
 }
 
 a {
@@ -11,19 +11,19 @@ a {
   line-height: 1.7;
   color: #666;
   margin: 0;
-  transition: all .4s;
   -webkit-transition: all .4s;
   -o-transition: all .4s;
-  -moz-transition: all .4s
+  -moz-transition: all .4s;
+  transition: all .4s;
 }
 
 a:focus {
-  outline: none!important
+  outline: none!important;
 }
 
 a:hover {
   text-decoration: none;
-  color: #333
+  color: #333;
 }
 
 .login {
@@ -137,24 +137,19 @@ a:hover {
   -o-transition: all .4s;
   -moz-transition: all .4s;
   transition: all .4s;
+  transform: translateY(-3px);
 }
 
-.input:focus+.animate-input::after {
-  top: -20px;
-  font-size: 15px
+.input:focus+.animate-input::after,
+.input:valid+.animate-input::after {
+    top: -20px;
+    font-size: 15px;
+    transform: translateY(-3px);
 }
 
-.input:focus+.animate-input::before {
-  width: 100%
-}
-
-.has-val.input+.animate-input::after {
-  top: -20px;
-  font-size: 15px
-}
-
-.has-val.input+.animate-input::before {
-  width: 100%
+.input:focus+.animate-input::before, 
+.input:valid+.animate-input::before {
+    width: 100%;
 }
 
 /* Login Button */
@@ -166,7 +161,7 @@ a:hover {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center
+  justify-content: center;
 }
 
 .login-btn {
@@ -195,7 +190,7 @@ a:hover {
   -webkit-transition: all .4s;
   -o-transition: all .4s;
   -moz-transition: all .4s;
-  transition: all .4s
+  transition: all .4s;
 }
 
 .login-btn:hover {
@@ -207,7 +202,7 @@ a:hover {
   -ms-box-shadow: 0 10px 30px 0 #3a5f37f5;
 }
 
-/* Registration TODO */
+/* Registration Button */
 
 .more-info ul {
   display: flex;
@@ -231,7 +226,7 @@ a:hover {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-  left: 0
+  left: 0;
 }
 
 .spacing {
@@ -253,4 +248,12 @@ a:hover {
   font-size: 15px;
   color: #aec893;
   line-height: 1.5;
+}
+
+#error-message {
+    padding-top: 20px;
+}
+
+img {
+    width: 400px;
 }
